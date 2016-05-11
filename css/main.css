@@ -1,22 +1,8 @@
-html, body, div, span, h1, h2, h3, h4, h5, h6, 
-p, blockquote, pre, a, code, em, img, s, b, u, 
-i, center, ol, ul, li, form, label, legend, table, 
-caption, tbody, tfoot, thead, tr, th, td, article, 
-aside, canvas, details, embed, figure, figcaption, 
-footer, header, hgroup, menu, nav, output, ruby, 
-summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  display: inherit;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-html {
+html, body {
   font-family: 'Montserrat', sans-serif;
   background: black;
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -25,10 +11,12 @@ header {
   flex-direction: column;
   align-items: center;
   background: #1D1E19;
-  padding: 10px;
+  padding: 16px;
 }
 
 nav {
+  width: 25%;
+  margin: 20px auto;
   color: #BBB;
   display: flex;
   flex-direction: column;
@@ -36,16 +24,29 @@ nav {
   padding: 20px;
 }
 
+nav p {
+  color: #F6F7EE;
+  text-align: center;
+}
+
 h1 {
   font-size: 48px;
   font-weight: 700;
-  padding: 10px;
+  margin: 0;
 }
 
 h2 {
+  font-size: 28px;
+  margin: 20px 0 16px 0;
+}
+
+h3 {
   font-size: 24px;
-  text-transform: uppercase;
-  padding: 10px;
+  margin: 16px 0 12px 0;
+}
+
+p {
+  margin: 12px 0;
 }
 
 a {
@@ -59,11 +60,27 @@ a:hover {
 }
 
 #md {
-  margin: auto;
   width: 80%;
+  margin: auto;
   background: #1D1E19;
   border-radius: 4px;
   color: white;
+  display: none;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 10px;
+  padding: 40px 50px;
+}
+
+#md h1, #md h2 {
+  border-bottom: 1px solid #333;
+  padding-bottom: 4px;
+}
+
+#md code, #md pre {
+  background: #333;
+  padding: 1px 2px 1px 2px;
+  border-radius: 2px;
+}
+
+#md pre {
+  padding: 4px 8px;
 }

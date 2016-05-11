@@ -1,7 +1,5 @@
 # Subset Sum
 
-Tim Hwang
-
 ## Overview
 
 Subset sum is a problem frequently encountered in interviews as a prototypical dynamic programming problem. It is a popular interview problem in part due to the amount of "twists" that can be applied to the problem, as well as the variety of approaches that can be taken to solve it. We will cover two variations of the problem, one trivial and one not.
