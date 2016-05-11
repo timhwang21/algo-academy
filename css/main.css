@@ -1,0 +1,67 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, code, em, img, s, b, u, 
+i, center, ol, ul, li, form, label, legend, table, 
+caption, tbody, tfoot, thead, tr, th, td, article, 
+aside, canvas, details, embed, figure, figcaption, 
+footer, header, hgroup, menu, nav, output, ruby, 
+section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: inherit;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  background: black;
+}
+
+header {
+  color: #F6F7EE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1D1E19;
+  padding: 10px;
+}
+
+nav {
+  color: #BBB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+a {
+  color: #99A7EE;
+  transition-duration: 0.1s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+#md {
+  margin: auto;
+  width: 80%;
+  background: #1D1E19;
+  border-radius: 4px;
+  color: white;
+}
