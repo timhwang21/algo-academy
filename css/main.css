@@ -4,7 +4,7 @@ i, center, ol, ul, li, form, label, legend, table,
 caption, tbody, tfoot, thead, tr, th, td, article, 
 aside, canvas, details, embed, figure, figcaption, 
 footer, header, hgroup, menu, nav, output, ruby, 
-section, summary, time, mark, audio, video {
+summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -64,4 +64,6 @@ a:hover {
   background: #1D1E19;
   border-radius: 4px;
   color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 10px;
 }
