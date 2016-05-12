@@ -10,7 +10,7 @@ Subset sum is a problem frequently encountered in interviews as a prototypical d
 
 Given an array of nonnegative integers, write a function `two_sum` that takes a `target`, and returns `true` if two elements from the array can be added to reach the target.
 
-### Brute Force Solution - `O(n^2 log n)` time, `O(1)` space
+### Brute Force Solution - `O(n^2)` time, `O(1)` space
 
 We can solve this in `O(n^2 log n)` time simply by stepping through the array, subtracting each element from `target`, and doing a binary search for the result. If `target` - element exists in the array, return `true`. 
 
@@ -19,8 +19,6 @@ We can solve this in `O(n^2 log n)` time simply by stepping through the array, s
         any? { |el| (self - [el]).include? target - el }
       end
     end
-
-Obviously, this is not ideal, as we have to consider each element (`O(n)`), and for each element, search the entire array (sort and then binary search, `O(n log n)`; can be slightly improved by preprocessing).
 
 ### Improved Solution - `O(n)` time, `O(n)` space
 
