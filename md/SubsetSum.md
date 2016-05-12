@@ -64,7 +64,7 @@ Subsets can be generated thusly:
 
 ### Better Solution - Memoized Sum Table - `O(m*n)` time, `O(m*n)` space
 
-Using dynamic programming, this problem can be solved in pseudo-polynomial time. The approach involves creating a table of every number from 0 to `target` as columns, and every item in the set as rows. Each row represents the set including the current row and all preceding rows, as well as all subsets. The table records which numbers can be achieved using elements from the subsets with `true` or `false`.
+Using dynamic programming, this problem can be solved in pseudo-polynomial time. The approach involves creating a table with every number from 0 to `target` as columns, and every item in the set as rows. Each row represents the set including the current row and all preceding rows, as well as all subsets. The table records which numbers can be achieved using elements from the subsets with `true` or `false`.
 
 (Note that while it's easier to think about the problem in terms of sets, we're not truly working with sets as our array can have duplicates.)
 
