@@ -90,3 +90,7 @@ The completed code is as follows:
 
       matrix.last[change]
     end
+
+## Variation: Subset Sum
+
+The Subset Sum problem is actually a special case of the Knapsack Problem! It is simply a knapsack where the target is the capacity, and the items all have weights equal to their values.
