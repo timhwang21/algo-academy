@@ -24,35 +24,33 @@ In a directed acyclic graph (DAG), topological sorting can be accomplished in a 
 
 ## Kahn's pseudocode
 
-```
-def topo_sort(V):
-  # V: set of all vertices v
-  # E: set of all edges (u,v)
+    def topo_sort(V):
+      # V: set of all vertices v
+      # E: set of all edges (u,v)
 
-  # (u,v): directed edge connecting vertex u to vertex v
+      # (u,v): directed edge connecting vertex u to vertex v
 
-  initialize list result to contain toposorted vertices
-  initialize queue Q to contain all vertices with no incoming edges
+      initialize list result to contain toposorted vertices
+      initialize queue Q to contain all vertices with no incoming edges
 
-  # setup: initialize with all vertices with no incoming edges
-  for all v in V:
-    if v.indegree == 0:
-      Q.enqueue(v)
+      # setup: initialize with all vertices with no incoming edges
+      for all v in V:
+        if v.indegree == 0:
+          Q.enqueue(v)
 
-  # algorithm: process each vertex in topological order
-  while Q is not empty:
-    dequeue v from Q
-    append v to result
-    for each neighbor u of v:
-      remove (u,v) from E
-      if u has no other incoming edges:
-        Q.enqueue(u)
+      # algorithm: process each vertex in topological order
+      while Q is not empty:
+        dequeue v from Q
+        append v to result
+        for each neighbor u of v:
+          remove (u,v) from E
+          if u has no other incoming edges:
+            Q.enqueue(u)
 
-  if any v in V has edges:
-    raise error: graph has a cycle
-  else:
-    return result
-```
+      if any v in V has edges:
+        raise error: graph has a cycle
+      else:
+        return result
 
 ## Tarjan's Algorithm
 
@@ -95,47 +93,44 @@ We can then calculate the shortest path to any given vertex in the DAG by calcul
 
 ### Relaxation pseudocode
 
-```
-# v.dist: current calculated distance from source vertex to v
-# v.π: predecessor vertex to v along current calculated shortest path
-# (u,v): directed edge connecting vertex u to vertex v
-# (u,v).weight: weight associated with going from vertex u to vertex v.
+    # v.dist: current calculated distance from source vertex to v
+    # v.π: predecessor vertex to v along current calculated shortest path
+    # (u,v): directed edge connecting vertex u to vertex v
+    # (u,v).weight: weight associated with going from vertex u to vertex v.
 
-def relax(u,v):
-  if v.dist < u.dist + (u,v).weight:
-    v.dist = u.dist + (u,v).weight
-    v.π = u
-```
+    def relax(u,v):
+      if v.dist < u.dist + (u,v).weight:
+        v.dist = u.dist + (u,v).weight
+        v.π = u
 
 One thing to note is that for a graph with a negative weight cycle (where the edge weights in a cycle can sum to a negative number), relaxation can be run indefinitely.  Bellman-Ford's algorithm is capable of checking for a negative-weight cycle, but the shortest paths calculated for a graph containing a negative weight cycle will be inaccurate.  The algorithm will just error out when it sees a negative weight cycle.
 
 ### Bellman-Ford pseudocode
 
-```
-# V: set of all vertices v
-# E: set of all edges (u,v)
-# src: source vertex
+    # V: set of all vertices v
+    # E: set of all edges (u,v)
+    # src: source vertex
 
-# v.dist: current calculated distance from source vertex to v
-# v.π: predecessor vertex to v along current calculated shortest path
-# (u,v): directed edge connecting vertex u to vertex v
-# (u,v).weight: weight associated with going from vertex u to vertex v
+    # v.dist: current calculated distance from source vertex to v
+    # v.π: predecessor vertex to v along current calculated shortest path
+    # (u,v): directed edge connecting vertex u to vertex v
+    # (u,v).weight: weight associated with going from vertex u to vertex v
 
-def shortest_paths(V,src):
-  for v in V:
-    v.dist = INFINITY
-    v.π = null
+    def shortest_paths(V,src):
+      for v in V:
+        v.dist = INFINITY
+        v.π = null
 
-  src.dist = 0
+      src.dist = 0
 
-  for i in 1..|V|-1:
-    for (u,v) in E:
-      relax(u,v)
+      for i in 1..|V|-1:
+        for (u,v) in E:
+          relax(u,v)
 
-  for (u,v) in E:
-    if v.dist > u.dist + (u,v).weight:
-      raise error: negative weight cycle detected
-```
+      for (u,v) in E:
+        if v.dist > u.dist + (u,v).weight:
+          raise error: negative weight cycle detected
+          
 This algorithm runs in `O(|V||E|)`.  From every vertex, we are looking at every edge and relaxing the edges accordingly until we've looked at all vertices.
 
 Side note: the concept of dynamic programming was birthed from the derivation of this algorithm!
@@ -150,33 +145,29 @@ This greedy approach will produce inaccurate results when negative edge weights 
 
 ### Dijkstra's pseudocode
 
-```
-def shortest_paths(V,src,target = null):
-  initialize priority queue Q to contain all vertices in graph
+    def shortest_paths(V,src,target = null):
+      initialize priority queue Q to contain all vertices in graph
 
-  for v in V:
-    v.dist = INFINITY
-    v.π = null
-    Q.insert(v)
+      for v in V:
+        v.dist = INFINITY
+        v.π = null
+        Q.insert(v)
 
-  src.dist = 0
+      src.dist = 0
 
-  while Q is not empty:
-    # select v from Q where v.dist is minimal
-    dequeue_min v from Q
-    # return early if v == target
+      while Q is not empty:
+        # select v from Q where v.dist is minimal
+        dequeue_min v from Q
+        # return early if v == target
 
-    for each neighbor u of v:
-      relax(u,v)
-```
+        for each neighbor u of v:
+          relax(u,v)
 
 Here's the relaxation pseudocode again, for reference:
 
-```
-def relax(u,v):
-  if v.dist < u.dist + (u,v).weight:
-    v.dist = u.dist + (u,v).weight
-    v.π = u
-```
+    def relax(u,v):
+      if v.dist < u.dist + (u,v).weight:
+        v.dist = u.dist + (u,v).weight
+        v.π = u
 
 If we utilize a data structure where we can access the minimum element in constant time, the runtime of this algorithm becomes near linear.  With a priority queue implemented using a min heap, we can achieve `O((|V|+|E|)log|V|)` time complexity.  Using a Fibonacci heap instead, we can achieve `O(|V|log|V|+|E|)`.  The bottleneck lies in re-heapifying every time we dequeue a vertex from the priority queue.  This is faster than the `O(|V||E|)` given to us by Bellman-Ford; again, however, this approach will not work for a DAG containing negatively weighted edges.

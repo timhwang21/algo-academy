@@ -84,3 +84,9 @@ a:hover {
 #md pre {
   padding: 4px 8px;
 }
+
+#md blockquote {
+  border-left: 4px solid #333;
+  margin-left: 0;
+  padding-left: 24px;
+}
