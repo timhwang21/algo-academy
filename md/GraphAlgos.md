@@ -59,23 +59,23 @@ def topo_sort(V):
 Let's talk about a depth-first approach instead.  This is an adaptation of Tarjan's algorithm for strongly connected components.
 
 ## Tarjan's pseudocode
-```
+
 # V: set of all vertices v
 
-def topo_sort(V):
-  initialize array result to contain toposorted vertices
-  initialize boolean array visited of size |V| to false
-  for all v in V:
-    visit(v,result,visited)
-  return result
+    def topo_sort(V):
+      initialize array result to contain toposorted vertices
+      initialize boolean array visited of size |V| to false
+      for all v in
+       V:
+        visit(v,result,visited)
+      return result
 
-def visit(v,result,visited):
-  if !visited[v]:
-    for each neighbor u of v:
-      visit(u,result,visited)
-    visited[v] = true
-    prepend v to result
-```
+    def visit(v,result,visited):
+      if !visited[v]:
+        for each neighbor u of v:
+          visit(u,result,visited)
+        visited[v] = true
+        prepend v to result
 
 This algorithm (and Kahn's) runs in `O(|V|+|E|)` time.  We will process each vertex and edge exactly once.
 
@@ -94,6 +94,7 @@ The Bellman-Ford algorithm calculates shortest paths in a DAG by first initializ
 We can then calculate the shortest path to any given vertex in the DAG by calculating the shortest path to every other vertex `|V|-1` times (i.e., once for every vertex except the source vertex, whose cost is zero).  The way this is accomplished is by _relaxing_ the edges.  Edges are relaxed by taking the minimum of the current calculated cost to the target vertex and the calculated cost achieved from going to the target vertex through another vertex via the edge connecting the two.
 
 ### Relaxation pseudocode
+
 ```
 # v.dist: current calculated distance from source vertex to v
 # v.π: predecessor vertex to v along current calculated shortest path
@@ -148,6 +149,7 @@ The idea is that we will process vertices by greedily selecting the shortest wei
 This greedy approach will produce inaccurate results when negative edge weights are introduced, as costs may need to be recalculated repeatedly from all possible paths to a particular vertex when negatively weighted edges are present to get the correct shortest path.  Thus, Dijkstra's is unsuitable for such an application.
 
 ### Dijkstra's pseudocode
+
 ```
 def shortest_paths(V,src,target = null):
   initialize priority queue Q to contain all vertices in graph
