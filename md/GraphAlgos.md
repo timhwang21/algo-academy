@@ -1,4 +1,8 @@
-# Table of Contents
+# Graph Algorithms
+
+Peter Yi
+
+## Table of Contents
 * [Topological Sorting](#topological-sorting)
   * [Kahn's Algorithm](#kahns-algorithm)
   * [Tarjan's Algorithm](#tarjans-algorithm)

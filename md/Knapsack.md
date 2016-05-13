@@ -1,5 +1,7 @@
 # The Knapsack Problem
 
+Tim Hwang
+
 ## Overview
 
 The knapsack problem is an optimization problem that deals with maximizing the value of a set of items. Traditionally, given a constraint (the "knapsack") and a set of items (with weights and values), one must find the combination of items that maximizes value.
