@@ -2,14 +2,6 @@
 
 Peter Yi
 
-## Table of Contents
-* [Topological Sorting](#topological-sorting)
-  * [Kahn's Algorithm](#kahns-algorithm)
-  * [Tarjan's Algorithm](#tarjans-algorithm)
-* [Shortest Paths](#shortest-paths)
-  * [Bellman-Ford Algorithm](#bellman-ford-algorithm)
-  * [Dijkstra's Algorithm](#dijkstras-algorithm)
-
 # Topological Sorting
 
 Topological sorting, per Wikipedia:
